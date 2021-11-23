@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import core.BaseTest;
+import core.DriverFactory;
 import pages.MenuPage;
 import pages.ResumoPage;
 
@@ -21,5 +22,12 @@ public class ResumoTest extends BaseTest {
 		
 		Assert.assertEquals("Movimentação removida com sucesso!",
 				resumoPage.obterMensagemSucesso());
+	}
+	
+	@Test public void testResumoMensal() {
+		menuPage.acessarTelaResumo();
+		
+		Assert.assertEquals("Seu Barriga - Extrato", DriverFactory.getDriver().getTitle());
+		
 	}
 }
