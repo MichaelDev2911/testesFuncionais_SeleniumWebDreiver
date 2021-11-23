@@ -1,7 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
-
 import core.BasePage;
 import core.DriverFactory;
 
