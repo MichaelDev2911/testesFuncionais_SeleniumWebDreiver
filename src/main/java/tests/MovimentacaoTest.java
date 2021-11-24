@@ -1,24 +1,27 @@
 package tests;
 
+import static tests.utils.DataUtils.obterDataComDiferencaDias;
+import static tests.utils.DataUtils.obterDataFormatada;
+
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import core.BaseTest;
 import pages.MenuPage;
 import pages.MovimentacaoPage;
-import tests.utils.DataUtils; 
-import static tests.utils.DataUtils.*;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MovimentacaoTest extends BaseTest {
 	private MenuPage menuPage = new MenuPage();
 	private MovimentacaoPage movpage = new MovimentacaoPage();
 
 	@Test
-	public void testInserirMovimentacao() {
+	public void test1_InserirMovimentacao() {
 		menuPage.acessarTelaInserirMovimentacao();
 		movpage.setDataMovimentacao(obterDataFormatada(new Date()));
 		movpage.setDataPagamento(obterDataFormatada(new Date()));
@@ -35,7 +38,7 @@ public class MovimentacaoTest extends BaseTest {
 	}
 	
 	@Test 
-	public void testCamposObrigatoriosMovimentacao() {
+	public void test2_CamposObrigatoriosMovimentacao() {
 
 		menuPage.acessarTelaInserirMovimentacao();
 		movpage.salvar();
@@ -55,7 +58,7 @@ public class MovimentacaoTest extends BaseTest {
 	}
 	
 	@Test
-	public void testInsertMovimentacaoFutura() {
+	public void test3_InsertMovimentacaoFutura() {
 		
 		Date dataFutura = obterDataComDiferencaDias(1);
 		
